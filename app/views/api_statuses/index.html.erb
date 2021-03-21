@@ -1,68 +1,86 @@
-<div class="header">
-  <div>
-  <nav class="navbar">
-    <a class="navbar-brand">Tray</a>
-      <button class="btn btn-outline-success" type="submit">logout</button>
-  </nav>
-  <div class="search">
-    <select class="form-select">
-      <option selected>select an API</option>
-      <option value="1">Twillio</option>
-      <option value="2">Github</option>
-      <option value="3">Google Maps</option>
-    </select>
-    <input type="submit" value="search">
-    <%= link_to "Update All", update_all_apis_path %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark newnavbarcolor">
+  <a class="navbar-brand tray-link" href="#">Tray.io</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active new-styles">
+        <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item new-styles">
+        <%= link_to "Update All", update_all_apis_path %>
+      </li>
+      <li class="nav-item dropdown new-styles">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2 mysearchbarcolor" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
-</div>
-</div>
-
-  <div class ="container">
-    <div style="background:#F1DABF; padding: 15px; box-shadow: 1px 1px 2px #000; margin: 12px; height: 600px">
-      <p><i class="fab fa-artstation"></i>Dashboard</p>
-      <p><i class="far fa-user-circle"></i>User Profile</p>
-      <p><i class="far fa-circle"></i><%= link_to "API collection", class: "api_color" %></p>
+</nav>
+<div class="main-container">
+  <div class="header-search-bar">
+    <div class="header">
+    </div>
   </div>
-
-
-<div class="container2">
-  <div class="usps d-flex justify-content-around">
-    <div class="usp">
-      <h3>Sunset API</h3>
-      <% if @sunset_apis.nil? %>
-        <p>No APIs in sunset period</p>
-      <% else %>
-        <% @sunset_apis.each do |sun| %>
-          <p><%= sun.name.capitalize %> | <%= sun.sunset_date %></p>
-          <%= link_to "Update #{sun.name}", api_status_jobs_path(sun.id) %>
+  <div class="main-dashboard">
+    <div class ="sidebar-container">
+      <p class="sidebar-links"><i class="fab fa-artstation"></i>Dashboard</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>View APIs</p>
+      <p class="sidebar-links"><i class="far fa-user-circle"></i>User Profile</p>
+      <p class="sidebar-links"><i class="far fa-user-circle"></i>Main Tray.io</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i>Sign Out</p>
+    </div>
+    <div class="api-info-container">
+      <div class="usp">
+        <h3 class="api-header">Sunset API</h3>
+        <% if @sunset_apis.nil? %>
+          <p>No APIs in sunset period</p>
+        <% else %>
+          <% @sunset_apis.each do |sun| %>
+            <p class="api-details"><%= sun.name.capitalize %> | <%= sun.sunset_date.strftime("%a %b %e at %l:%M%p") %>
+            <%= link_to "Update #{sun.name}", api_status_jobs_path(sun.id) %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div class="usp">
-      <h3>Deprecated API</h3>
-      <% if @deprecated_apis.nil? %>
-        <p>No APIs deprecated</p>
-      <% else %>
-        <% @deprecated_apis.each do |dep| %>
-          <p><%= dep.name.capitalize %></p>
-          <%= link_to "Update #{dep.name}", api_status_jobs_path(dep.id) %>
+      </div>
+      <div class="usp">
+        <h3 class="api-header">Deprecated API</h3>
+        <% if @deprecated_apis.nil? %>
+          <p>No APIs deprecated</p>
+        <% else %>
+          <% @deprecated_apis.each do |dep| %>
+            <p class="api-details"><%= dep.name.capitalize %></p>
+            <%= link_to "Update #{dep.name}", api_status_jobs_path(dep.id) %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div class="usp">
-      <h3>Functioniong APIs</h3>
-      <% @apis.each do |api| %>
-        <p><%= api.name.capitalize %></p>
-        <%= link_to "Update #{api.name}", api_status_jobs_path(api.id) %>
-      <% end %>
-      <hr class="bar"></hr>
+      </div>
+      <div class="usp">
+        <h3 class="api-header">Functioniong APIs</h3>
+        <% @apis.each do |api| %>
+          <p class="api-details"><%= api.name.capitalize %></p>
+          <%= link_to "Update #{api.name}", api_status_jobs_path(api.id) %>
+        <% end %>
+        <hr class="bar"></hr>
+      </div>
     </div>
   </div>
 </div>
-</div>
-
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container1">
-    <span style="color: #fff;">Done BY Michael Alec Ayan Thanoja </span>
-  </div>
-</footer>
