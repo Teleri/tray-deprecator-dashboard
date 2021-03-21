@@ -7,4 +7,14 @@ class JobsController < ApplicationController
     # @job.save
     redirect_to :root
   end
+
+  def update_all_apis
+    @apis = ApiStatus.all
+    @apis.each do |api|
+      @job = Job.new
+      @job.api_status_id = api.id
+      CheckApiJob.perform_now(api)
+    end
+    redirect_to :root
+  end
 end
