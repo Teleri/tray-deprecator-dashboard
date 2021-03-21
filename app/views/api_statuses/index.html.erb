@@ -29,14 +29,32 @@
     <div class="usp">
       <H3>Sunset API</h3>
       <p><%= link_to "Twillio" %></p>
-       <p><%= link_to "Github" %></p>
-        <p><%= link_to "Google Maps" %></p>
+      <p><%= link_to "Github" %></p>
+      <p><%= link_to "Google Maps" %></p>
+      <% if @sunset_apis.nil? %>
+        <p>No APIs in sunset period</p>
+      <% else %>
+        <% @sunset_apis.each do |sun| %>
+          <p><%= sun.name.capitalize %> | <%= sun.sunset_date %></p>
+        <% end %>
+      <% end %>
     </div>
     <div class="usp">
       <h3>Deprecated API</h3>
       <p><%= link_to "Twillio" %></p>
+      <% if @deprecated_apis.nil? %>
+        <p>No APIs deprecated</p>
+      <% else %>
+        <% @deprecated_apis.each do |dep| %>
+          <p><%= dep.name.capitalize %></p>
+        <% end %>
+      <% end %>
     </div>
-    <div class="usp1">
+    <div class="usp">
+      <h3>Functioniong APIs</h3>
+      <% @apis.each do |api| %>
+        <p><%= api.name.capitalize %></p>
+      <% end %>
       <hr class="bar"></hr>
     </div>
   </div>
@@ -48,30 +66,3 @@
     <span style="color: #fff;">Done BY Michael Alec Ayan Thanoja </span>
   </div>
 </footer>
-
-
-
-    <div class="usp">
-      <h2>All APIs</h2>
-      <ol>
-        <% @apis.each do |api| %>
-          <li><%= api.name %><%= link_to "Check API", api_status_api_check_path(api) %></li>
-        <% end %>
-      </ol>
-    </div>
-    <div class="usp">
-      <h2>Sunset API</h2>
-      <% @sunset_apis.each do |sun| %>
-        <p><%= sun.name %> | <%= sun.sunset_date %></p>
-      <% end %>
-    </div>
-    <div class="usp">
-      <h2>Deprecated API</h2>
-      <% if @deprecated_apis.nil? %>
-        <p>All APIs in working order</p>
-      <% else %>
-        <% @deprecated_apis.each do |dep| %>
-          <p><%= dep.name %></p>
-        <% end %>
-      <% end %>
-    </div>
