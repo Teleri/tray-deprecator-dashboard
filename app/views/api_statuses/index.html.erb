@@ -3,14 +3,13 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active new-styles">
         <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item new-styles">
-        <%= link_to "Update Twilio", api_status_jobs_path(@apis.first.id) %>
+        <%= link_to "Update All", update_all_apis_path %>
       </li>
       <li class="nav-item dropdown new-styles">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,9 +37,7 @@
     <div class="header">
     </div>
   </div>
-
   <div class="main-dashboard">
-
     <div class ="sidebar-container">
       <p class="sidebar-links"><i class="fab fa-artstation"></i>Dashboard</p>
       <p class="sidebar-links"><i class="far fa-circle"></i>View APIs</p>
@@ -53,7 +50,6 @@
       <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
       <p class="sidebar-links"><i class="far fa-circle"></i>Sign Out</p>
     </div>
-
     <div class="api-info-container">
       <div class="usp">
         <h3 class="api-header">Sunset API</h3>
@@ -62,7 +58,7 @@
         <% else %>
           <% @sunset_apis.each do |sun| %>
             <p class="api-details"><%= sun.name.capitalize %> | <%= sun.sunset_date.strftime("%a %b %e at %l:%M%p") %>
-            <button type="button" class="btn btn-primary">Primary</button></p>
+            <%= link_to "Update #{sun.name}", api_status_jobs_path(sun.id) %>
           <% end %>
         <% end %>
       </div>
@@ -73,6 +69,7 @@
         <% else %>
           <% @deprecated_apis.each do |dep| %>
             <p class="api-details"><%= dep.name.capitalize %></p>
+            <%= link_to "Update #{dep.name}", api_status_jobs_path(dep.id) %>
           <% end %>
         <% end %>
       </div>
@@ -80,10 +77,10 @@
         <h3 class="api-header">Functioniong APIs</h3>
         <% @apis.each do |api| %>
           <p class="api-details"><%= api.name.capitalize %></p>
+          <%= link_to "Update #{api.name}", api_status_jobs_path(api.id) %>
         <% end %>
         <hr class="bar"></hr>
       </div>
     </div>
-
   </div>
 </div>

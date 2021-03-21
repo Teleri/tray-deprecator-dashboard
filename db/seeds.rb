@@ -7,4 +7,4 @@ ApiStatus.create(name: "gitlabs", url: "https://example-api-tray.herokuapp.com/a
 ApiStatus.create(name: "rydoos", url: "https://example-api-tray.herokuapp.com/api/v7/rydoos", has_sunset: false, is_deprecated: false, sunset_date: nil )
 ApiStatus.create(name: "stripes", url: "https://example-api-tray.herokuapp.com/api/v8/stripes", has_sunset: false, is_deprecated: false, sunset_date: nil )
 ApiStatus.create(name: "postmans", url: "https://example-api-tray.herokuapp.com/api/v9/postmans", has_sunset: false, is_deprecated: false, sunset_date: nil )
-ApiStatus.create(name: "casavis", url: "https://example-api-tray.herokuapp.com/api/v10/casavi", has_sunset: false, is_deprecated: false, sunset_date: nil )
+# ApiStatus.create(name: "casavis", url: "https://example-api-tray.herokuapp.com/api/v10/casavi", has_sunset: false, is_deprecated: false, sunset_date: nil )
