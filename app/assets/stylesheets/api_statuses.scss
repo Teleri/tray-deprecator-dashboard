@@ -1,81 +1,101 @@
-// Place all the styles related to the api_statuses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.main-container {
+  height: 1000px;
+}
 
-body {
-  box-sizing: border-box;
-  background: #F1DABF;
+.main-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 10px;
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 !important;
-  margin: 0 !important;
+
+.sidebar-container {
+  height: 600px;
+  background: #0a0e36;
+  padding: 15px;
+  color: white;
+  box-shadow: 1px 1px 2px #000;
 }
-.container2 {
+
+.api-info-container {
   display: flex;
-  justify-content: space-between;
-  padding: 5px !important;
-  margin: 5px !important;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.api-details {
+  font-size: 26px;
 }
 
 .search {
   text-align: center;
   padding: 10px;
 }
+
 .usp {
-  box-shadow: 1px 1px 2px #92817a;
-  background: #edf2f1;
-  margin: 10px;
-  height: 300px;
+  background: #cecece;
+  height: 500px;
+  width: 500px;
   padding: 15px;
+  text-align: center;
 }
+
 .form-select {
   padding: 10px;
   border: none;
-  box-shadow: 1px 1px 2px #2292A4;
-  color: #2292A4;
+  box-shadow: 1px 1px 2px #2292a4;
+  color: #2292a4;
   opacity: 0.6;
   border-radius: 40px;
   width: 400px;
 }
 input {
   padding: 8px;
-  background:#2292A4 !important;
+  background: #2292a4 !important;
   border: none;
   border-radius: 5px;
   color: #fff;
 }
 
 input:hover {
-  background:#0a515c !important;
+  background: #0a515c !important;
 }
 
-h3 {
+h3.api-header {
   padding-bottom: 5px;
-  background: #2292A4;
+  background: #1f66e5;
   color: #fff;
   padding: 8px;
   border-radius: 5px;
-}
-
-.usp1 {
-  width: 400px;
-  box-shadow: 1px 1px 2px #92817a;
-  background: #edf2f1;
-  margin: 10px;
-  height: 300px;
-  padding: 240px 15px 15px 15px ;
+  font-size: 40px;
 }
 
 .bar {
-  background: #2292A4;
+  background: #2292a4;
 }
 
 .bar1 {
-  background: #2292A4;
+  background: #2292a4;
   display: flex;
 }
 .api_color {
   text-decoration: none;
+}
+
+.sidebar-links {
+  font-size: 20px;
+}
+
+.new-styles {
+  font-size: 20px;
+}
+
+a.tray-link {
+  font-size: 20px;
+}
+
+nav.newnavbarcolor {
+  background-color: #1f66e5 !important;
+}
+
+.mysearchbarcolor {
+  background-color: #fff !important;
 }
