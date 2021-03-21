@@ -1,12 +1,56 @@
 <div class="header">
-  <div class ="container head-text">
-      <h2><i class="fab fa-artstation"></i>Dashboard</h2>
-      <h2><i class="far fa-user-circle"></i>User Profile</h2>
-      <h2><i class="far fa-circle"></i>API Collection</h2>
+  <div>
+  <nav class="navbar">
+    <a class="navbar-brand">Tray</a>
+      <button class="btn btn-outline-success" type="submit">logout</button>
+  </nav>
+  <div class="search">
+    <select class="form-select">
+      <option selected>select an API</option>
+      <option value="1">Twillio</option>
+      <option value="2">Github</option>
+      <option value="3">Google Maps</option>
+    </select>
+    <input type="submit" value="search">
   </div>
 </div>
-<div class="container">
+</div>
+
+  <div class ="container">
+    <div style="background:#F1DABF; padding: 15px; box-shadow: 1px 1px 2px #000; margin: 12px; height: 600px">
+      <p><i class="fab fa-artstation"></i>Dashboard</p>
+      <p><i class="far fa-user-circle"></i>User Profile</p>
+      <p><i class="far fa-circle"></i><%= link_to "API collection", class: "api_color" %></p>
+  </div>
+
+
+<div class="container2">
   <div class="usps d-flex justify-content-around">
+    <div class="usp">
+      <H3>Sunset API</h3>
+      <p><%= link_to "Twillio" %></p>
+       <p><%= link_to "Github" %></p>
+        <p><%= link_to "Google Maps" %></p>
+    </div>
+    <div class="usp">
+      <h3>Deprecated API</h3>
+      <p><%= link_to "Twillio" %></p>
+    </div>
+    <div class="usp1">
+      <hr class="bar"></hr>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container1">
+    <span style="color: #fff;">Done BY Michael Alec Ayan Thanoja </span>
+  </div>
+</footer>
+
+
+
     <div class="usp">
       <h2>All APIs</h2>
       <ol>
@@ -31,5 +75,3 @@
         <% end %>
       <% end %>
     </div>
-  </div>
-</div>
