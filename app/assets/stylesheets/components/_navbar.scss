@@ -1,0 +1,22 @@
+.navbar {
+ display: flex;
+ background: #2292A4;
+ justify-content: space-between;
+ width: 100vw;
+}
+.navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand:hover {
+  color: #fff;
+}
+.btn-outline-success {
+  color:#fff !important;
+  border-color:#fff !important;
+}
+
+.btn-outline-success:hover {
+  background:#fff !important;
+  color: #2292A4 !important;
+}

@@ -1,3 +1,80 @@
 // Place all the styles related to the api_statuses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+  box-sizing: border-box;
+  background: #F1DABF;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.container2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px !important;
+  margin: 5px !important;
+}
+
+.search {
+  text-align: center;
+  padding: 10px;
+}
+.usp {
+  box-shadow: 1px 1px 2px #92817a;
+  background: #edf2f1;
+  margin: 10px;
+  height: 300px;
+  padding: 15px;
+}
+.form-select {
+  padding: 10px;
+  border: none;
+  box-shadow: 1px 1px 2px #2292A4;
+  color: #2292A4;
+  border-radius: 40px;
+  width: 400px;
+}
+input {
+  padding: 8px;
+  background:#2292A4 !important;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+input:hover {
+  background:#0a515c !important;
+}
+
+h3 {
+  padding-bottom: 5px;
+  background: #2292A4;
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.usp1 {
+  width: 400px;
+  box-shadow: 1px 1px 2px #92817a;
+  background: #edf2f1;
+  margin: 10px;
+  height: 300px;
+  padding: 240px 15px 15px 15px ;
+}
+
+.bar {
+  background: #2292A4;
+}
+
+.bar1 {
+  background: #2292A4;
+  display: flex;
+}
+.api_color {
+  text-decoration: none;
+}
