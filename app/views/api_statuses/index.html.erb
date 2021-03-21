@@ -51,3 +51,27 @@
 
 
 
+    <div class="usp">
+      <h2>All APIs</h2>
+      <ol>
+        <% @apis.each do |api| %>
+          <li><%= api.name %><%= link_to "Check API", api_status_api_check_path(api) %></li>
+        <% end %>
+      </ol>
+    </div>
+    <div class="usp">
+      <h2>Sunset API</h2>
+      <% @sunset_apis.each do |sun| %>
+        <p><%= sun.name %> | <%= sun.sunset_date %></p>
+      <% end %>
+    </div>
+    <div class="usp">
+      <h2>Deprecated API</h2>
+      <% if @deprecated_apis.nil? %>
+        <p>All APIs in working order</p>
+      <% else %>
+        <% @deprecated_apis.each do |dep| %>
+          <p><%= dep.name %></p>
+        <% end %>
+      <% end %>
+    </div>
