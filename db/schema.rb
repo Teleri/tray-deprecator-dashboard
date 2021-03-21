@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_153407) do
+ActiveRecord::Schema.define(version: 2021_03_21_102217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,4 +25,12 @@ ActiveRecord::Schema.define(version: 2021_03_20_153407) do
     t.datetime "sunset_date"
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "api_status_id", null: false
+    t.index ["api_status_id"], name: "index_jobs_on_api_status_id"
+  end
+
+  add_foreign_key "jobs", "api_statuses"
 end
