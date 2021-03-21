@@ -12,7 +12,7 @@
       <option value="3">Google Maps</option>
     </select>
     <input type="submit" value="search">
-    <%= link_to "Update Twilio", api_status_jobs_path(@apis.first.id) %>
+    <%#= link_to "Update Twilio", api_status_jobs_path(@apis.first.id) %>
   </div>
 </div>
 </div>
@@ -34,6 +34,7 @@
       <% else %>
         <% @sunset_apis.each do |sun| %>
           <p><%= sun.name.capitalize %> | <%= sun.sunset_date %></p>
+          <%= link_to "Update #{sun.name}", api_status_jobs_path(sun.id) %>
         <% end %>
       <% end %>
     </div>
@@ -44,6 +45,7 @@
       <% else %>
         <% @deprecated_apis.each do |dep| %>
           <p><%= dep.name.capitalize %></p>
+          <%= link_to "Update #{dep.name}", api_status_jobs_path(dep.id) %>
         <% end %>
       <% end %>
     </div>
@@ -51,6 +53,7 @@
       <h3>Functioniong APIs</h3>
       <% @apis.each do |api| %>
         <p><%= api.name.capitalize %></p>
+        <%= link_to "Update #{api.name}", api_status_jobs_path(api.id) %>
       <% end %>
       <hr class="bar"></hr>
     </div>

@@ -3,8 +3,8 @@ class JobsController < ApplicationController
     @api = ApiStatus.find(params[:api_status_id])
     @job = Job.new
     @job.api_status_id = @api.id
-    CheckApiJob.perform_now(@api) # .set(wait: 2.seconds)
-    @job.save
+    CheckApiJob.perform_now(@api)
+    # @job.save
     redirect_to :root
   end
 end
