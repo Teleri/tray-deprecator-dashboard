@@ -8,9 +8,7 @@
       <li class="nav-item active new-styles">
         <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item new-styles">
-        <%= link_to "Update All", update_all_apis_path %>
-      </li>
+
       <li class="nav-item dropdown new-styles">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
@@ -21,9 +19,6 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -39,16 +34,17 @@
   </div>
   <div class="main-dashboard">
     <div class ="sidebar-container">
-      <p class="sidebar-links"><i class="fab fa-artstation"></i>Dashboard</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>View APIs</p>
-      <p class="sidebar-links"><i class="far fa-user-circle"></i>User Profile</p>
-      <p class="sidebar-links"><i class="far fa-user-circle"></i>Main Tray.io</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>Link elsewhere</p>
-      <p class="sidebar-links"><i class="far fa-circle"></i>Sign Out</p>
+      <%= link_to "Update All", update_all_apis_path, class: "btn btn-primary button-size button-padding" %>
+      <p class="sidebar-links"><i class="fab fa-artstation"></i> Dashboard</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> View APIs</p>
+      <p class="sidebar-links"><i class="far fa-user-circle"></i> User Profile</p>
+      <p class="sidebar-links"><i class="far fa-user-circle"></i> Main Tray.io</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> Link elsewhere</p>
+      <p class="sidebar-links"><i class="far fa-circle"></i> Sign Out</p>
     </div>
     <div class="api-info-container">
       <div class="usp">
@@ -57,8 +53,14 @@
           <p>No APIs in sunset period</p>
         <% else %>
           <% @sunset_apis.each do |sun| %>
-            <p class="api-details"><%= sun.name.capitalize %> | <%= sun.sunset_date.strftime("%a %b %e at %l:%M%p") %>
-            <%= link_to "Update #{sun.name}", api_status_jobs_path(sun.id) %>
+          <div class="api-detail-container">
+            <div>
+              <p class="api-details"><%= sun.name.capitalize %> | <%= sun.sunset_date.strftime("%a %b %e at %l:%M%p") %>
+            </div>
+            <div>
+              <%= link_to "Update", api_status_jobs_path(sun.id), class: "btn btn-primary button-size" %>
+            </div>
+          </div>
           <% end %>
         <% end %>
       </div>
@@ -68,18 +70,29 @@
           <p>No APIs deprecated</p>
         <% else %>
           <% @deprecated_apis.each do |dep| %>
-            <p class="api-details"><%= dep.name.capitalize %></p>
-            <%= link_to "Update #{dep.name}", api_status_jobs_path(dep.id) %>
+          <div class="api-detail-container">
+            <div>
+              <p class="api-details"><%= dep.name.capitalize %></p>
+            </div>
+            <div>
+              <%= link_to "Update", api_status_jobs_path(dep.id), class: "btn btn-primary button-size" %>
+            </div>
+          </div>
           <% end %>
         <% end %>
       </div>
       <div class="usp">
         <h3 class="api-header">Functioniong APIs</h3>
         <% @apis.each do |api| %>
-          <p class="api-details"><%= api.name.capitalize %></p>
-          <%= link_to "Update #{api.name}", api_status_jobs_path(api.id) %>
+          <div class="api-detail-container">
+            <div>
+              <p class="api-details"><%= api.name.capitalize %></p>
+            </div>
+            <div>
+              <%= link_to "Update", api_status_jobs_path(api.id), class: "btn btn-primary button-size" %>
+            </div>
+          </div>
         <% end %>
-        <hr class="bar"></hr>
       </div>
     </div>
   </div>

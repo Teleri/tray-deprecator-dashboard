@@ -11,7 +11,7 @@
 .sidebar-container {
   height: 600px;
   background: #0a0e36;
-  padding: 15px;
+  padding: 30px;
   color: white;
   box-shadow: 1px 1px 2px #000;
 }
@@ -22,7 +22,7 @@
   align-items: center;
 }
 .api-details {
-  font-size: 26px;
+  font-size: 22px;
 }
 
 .search {
@@ -32,7 +32,7 @@
 
 .usp {
   background: #cecece;
-  height: 500px;
+  height: 750px;
   width: 500px;
   padding: 15px;
   text-align: center;
@@ -98,4 +98,20 @@ nav.newnavbarcolor {
 
 .mysearchbarcolor {
   background-color: #fff !important;
+}
+
+a.button-size {
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.api-detail-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.button-padding {
+  margin-bottom: 40px;
+  width: 100%;
 }
